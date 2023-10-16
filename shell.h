@@ -11,7 +11,6 @@
 #include <string.h>
 #include <fcntl.h>
 #include <signal.h>
-#include <sys/resources.h>
 #include <sys/time.h>
 #include <dirent.h>
 
