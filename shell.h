@@ -20,8 +20,10 @@ char *_getenv(char *variable);
 char *_read_line(void);
 int _execute(char **command, char *argv, int idx);
 
-/* builtins.c */
-int is_builtin(char *command);
+/**
+ * builtins.c
+ * int is_builtin(char *command);
+ */
 
 
 

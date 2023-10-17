@@ -7,7 +7,9 @@
  */
 char **tokenizer(char *line)
 {
-	char *token = NULL, char **command = NULL, tmp = NULL;
+	char *token = NULL;
+	char **command = NULL;
+	tmp = NULL;
 	int cpt = 0, i = 0;
 	
 	if (!line)
@@ -19,8 +21,10 @@ char **tokenizer(char *line)
 
 	if  (token == NULL)
 	{
-		free(line), line = NULL;
-		free(tmp), tmp = NULL;
+		free(line);
+		line = NULL;
+		free(tmp);
+		tmp = NULL;
 		return (NULL);
 	}
 	while (token)
@@ -30,7 +34,7 @@ char **tokenizer(char *line)
 	}
 	free(tmp), tmp = NULL;
 
-	command = (char **)malloc(siseof(char *) * (cpt + 1));
+	command = (char **)malloc(sizeof(char *) * (cpt + 1));
 	if (!command)
 	{
 		free(line), line = NULL;
@@ -43,7 +47,8 @@ char **tokenizer(char *line)
 		token = strtok(NULL, DELIM);
 		i++;
 	}
-	free(line), line = NULL;
+	free(line);
+	line = NULL;
 	command[i] = NULL;
 	return(command);
 }
