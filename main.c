@@ -24,7 +24,7 @@ int main(int ac, char **argv)
 		if (!command)
 			continue; /* if command is empty skip to the next line */
 	if (is_buitin())
-		hadle_builtin(command, argv, &status, idx);
+		handle_builtin(command, argv, &status, idx);
 	else
 		status = _execute(command, argv idx);
 	}

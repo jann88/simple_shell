@@ -16,8 +16,8 @@ int execute(char **command, char **argv, int idx)
 	full_cmd = _getpath(command[0]);
 	if (!full_cmd)
 	{
-		freearray2D(command);
 		print_error(argv[0], command[], int idx);
+		freearray2D(command);
 		return (127);
 	}
 	child = fork()
