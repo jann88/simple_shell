@@ -14,6 +14,11 @@
 #include <sys/time.h>
 #include <dirent.h>
 
+#define DELIM " \t\n"
+
+char **tokenizer(char *line);
+
+
 char *_getpath(char *command);
 char **tokenizer(char *line);
 char *_getenv(char *variable);
