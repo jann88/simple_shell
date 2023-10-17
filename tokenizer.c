@@ -32,7 +32,8 @@ char **tokenizer(char *line)
 		cpt++;
 		token = strtok(NULL, DELIM);
 	}
-	free(tmp), tmp = NULL;
+	free(tmp);
+	tmp = NULL;
 
 	command = (char **)malloc(sizeof(char *) * (cpt + 1));
 	if (!command)
