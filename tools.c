@@ -1,4 +1,4 @@
-#include "shell.h" 
+#include "shell.h"
 void freearray2D(char **array)
 {
 
