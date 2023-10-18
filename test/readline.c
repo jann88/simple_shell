@@ -7,7 +7,7 @@
 char *readline(void)
 {
 	char *line = NULL;
-	size_t n;
+	ssize_t n;
 	ssize_t len = 0;
 
 	write(STDOUT_FILENO, "$ ", 2);
