@@ -112,7 +112,7 @@ char *error_not_found(param *commandArg)
 char *error_exitShell(param *commandArg)
 {
 	int length;
-	char * error;
+	char *error;
 	char *ver_str;
 
 	ver_str = aux_itoa(commandArg->counter);

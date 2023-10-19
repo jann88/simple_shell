@@ -49,7 +49,7 @@ void set_env(char *name, char *value, param *commandArg)
 	}
 	commandArg->_environ = _reallocdp(commandArg->_environ, i, sizeof(char *) * (i + 2));
 	commandArg->_environ[i] = copy_info(name, value);
-	commandArg-> _environ[i + 1] = NULL;
+	commandArg->_environ[i + 1] = NULL;
 }
 
 /**
@@ -66,7 +66,6 @@ int _setenv(param *commandArg)
 	}
 	set_env(commandArg->args[1], commandArg->args[2], commandArg);
 	return (1);
-}
 /**
  * _unsetenv - deletes an environment variable
  * @commandArg: relevant data

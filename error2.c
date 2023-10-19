@@ -38,7 +38,7 @@ char *error_env(param *commandArg)
 /**
  * error_path_126 - error for path and failure denied permission
  * @commandArg: data relevant (arguments, counter)
- * Return: string error 
+ * Return: string error
  */
 char *error_path_126(param *commandArg)
 {

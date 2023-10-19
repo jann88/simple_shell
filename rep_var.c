@@ -55,7 +55,7 @@ int check_vars(r_var **h, char *in, char *st, param *data)
 	{
 		if (in[i] == '$')
 		{
-			if (in[i +1] == '?')
+			if (in[i + 1] == '?')
 				add_rvar_node(h, 2, st, lst), i++;
 			else if (in[i + 1] == '$')
 				add_rvar_node(h, 2, data->pid, lpd), i++;
@@ -89,7 +89,7 @@ char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
 	int a, b, c;
 
 	current_variable = *head;
-	for (b = a = 0; a< nlen; a++)
+	for (b = a = 0; a < nlen; a++)
 	{
 		if (input[b] == '$')
 		{
@@ -100,7 +100,7 @@ char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
 			}
 			else if (current_variable->len_var && !(current_variable->len_val))
 			{
-				for ( c = 0; c < current_variable->len_var; c++)
+				for (c = 0; c < current_variable->len_var; c++)
 					b++;
 				a--;
 			}

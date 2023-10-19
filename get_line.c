@@ -21,7 +21,7 @@ void assign_line(char **lineptr, size_t *n, char *buffer, size_t j)
 		}
 			*lineptr = buffer;
 	}
-	else if(*n < j)
+	else if (*n < j)
 	{
 		if (j > BUFSIZE)
 			*n = j;
@@ -58,22 +58,18 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	
 	buffer = malloc(sizeof(char) * BUFSIZE);
 	if (buffer == 0)
-	{
 		return (-1);
-	}
 	while (t != '\n')
 	{
 		i = read(STDIN_FILENO, &t, 1);
 		if (i == -1 || (i == 0 && input == 0))
 		{
 			free(buffer);
-			return(-1);
+			return (-1);
 		}
 		if (i == 0 && input != 0)
-		{
 			input++;
 			break;
-		}
 		if (input >= BUFSIZE)
 			buffer = _realloc(buffer, input, input + 1);
 		buffer[input] = t;

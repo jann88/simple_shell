@@ -177,26 +177,18 @@ int cmd_exec(param *commandArg)
 	if (pd == 0)
 	{
 		if (exec == 0)
-		{
 			dir = _which(commandArg->args[0], commandArg->_environ);
-		}
 		else
-		{
 			dir = commandArg->args[0];
-		}
 		execve(dir + exec, commandArg->args, commandArg->_environ);
 	}
 	else if (pd < 0)
-	{
 		perror(commandArg->av[0]);
 		return (1);
-	}
 	else
-	{
 		do {
 			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
-	}
 	commandArg->status = state / 256;
 	return (1);
 }

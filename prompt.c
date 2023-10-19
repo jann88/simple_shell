@@ -18,7 +18,7 @@ char *rm_comment(char *input)
 				free(input);
 				return (NULL);
 			}
-			if (input[i -1] == ' ' || input[i - 1] == '\t' || input[i - 1] == ':')
+			if (input[i - 1] == ' ' || input[i - 1] == '\t' || input[i - 1] == ':')
 				input_width = i;
 		}
 	}

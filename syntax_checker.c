@@ -160,7 +160,7 @@ int check_syntax_error(param *commandArg, char *input)
 		return (1);
 	}
 	i = error_sep_op(input + start_index, 0, *(input + start_index));
-	if ( i != 0)
+	if (i != 0)
 	{
 		print_syntax_error(commandArg, input, start_index + i, 1);
 		return (1);
