@@ -55,7 +55,6 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	else
 		return (-1);
 	input = 0;
-	
 	buffer = malloc(sizeof(char) * BUFSIZE);
 	if (buffer == 0)
 		return (-1);

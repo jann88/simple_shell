@@ -129,7 +129,7 @@ int first_char(char *input, int *i);
 void print_syntax_error(param *commandArg, char *input, int i, int bool);
 int check_syntax_error(param *commandArg, char *input);
 
-/* shell_prompt.c */
+/* prompt.c */
 char *rm_comment(char *input);
 void shell_loop(param *commandArg);
 
