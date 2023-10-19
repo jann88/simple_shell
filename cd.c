@@ -49,6 +49,40 @@ void cd_dot(param *commandArg)
 	free(cp_pwd);
 }
 /**
+ * cd_to - change to dir given
+ * by user
+ * @commandArg: data relevant to the dir
+ * Return: none
+ */
+void cd_to(param *commandArg)
+{
+	char current_pwd[PATH_MAX];
+	char *dir, *cp_pwd, *cp_dir;
+
+	getcwd(current_pwd, sizeof(current_pwd));
+
+	dir = commandArg->args[1];
+	if (chdir(dir) == -1)
+	{
+		get_error(commandArg, 2);
+		return;
+	}
+
+	cp_pwd = _strdup(current_pwd);
+	set_env("OLDPWD", cp_pwd, commandArg);
+
+	cp_dir = _strdup(dir);
+	set_env("PWD", cp_dir, commandArg);
+
+	free(cp_pwd);
+	free(cp_dir);
+
+	commandArg->status = 0;
+
+	chdir(dir);
+}
+
+/**
  * cd_to_home - change to home dir
  * @commandArg: data related to dat structure
  * Return: none
