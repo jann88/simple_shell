@@ -55,7 +55,7 @@ char *aux_itoa(int n)
 	do {
 		*(str_buffer + length) = (absolute_num % 10) + '0';
 		absolute_num = absolute_num / 10;
-		length__;
+		/*length__;*/
 	}
 	while (absolute_num > 0);
 	return (str_buffer);
