@@ -31,7 +31,7 @@ int get_len(int n)
  * @n: int type of numbers
  * Return: returns a string
  */
-char *aux_itoa(int n)
+char aux_itoa(int n)
 {
 	unsigned int absolute_num;
 	int length = get_len(n);
