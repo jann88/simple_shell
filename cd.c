@@ -120,38 +120,3 @@ void cd_previous(param *commandArg)
 
 	chdir(previous_pwd);
 }
-
-/**
- * cd_to_home- change to the home_directory
- * @commandArg: data rel to environ
- * Return: none
- */
-void cd_to_home(param *commandArg)
-{
-	char *previous_pwd, *home_directory;
-	char current_pwd[PATH_MAX];
-
-	getcwd(current_pwd, sizeof(current_pwd));
-	previous_pwd = _strdup(current_pwd);
-
-	home_directory = _getenv("HOME", commandArg->_environ);
-
-	if (home_directory == NULL)
-	{
-		set_env("OLDPWD", previous_pwd, commandArg);
-		free(previous_pwd);
-		return;
-	}
-
-	if (chdir(home_directory) == -1)
-	{
-		get_error(commandArg, 2);
-		free(previous_pwd);
-		return;
-	}
-
-	set_env("OLDPWD", previous_pwd, commandArg);
-	set_env("PWD", home_directory, commandArg);
-	free(previous_pwd);
-	commandArg->status = 0;
-}
