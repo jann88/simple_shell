@@ -185,12 +185,10 @@ int cmd_exec(param *commandArg)
 	else if (pd < 0)
 		perror(commandArg->av[0]);
 		return (1);
-	else
-	{
+
 		do {
 			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
-	}
 	commandArg->status = state / 256;
 	return (1);
 }

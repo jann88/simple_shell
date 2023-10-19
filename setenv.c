@@ -19,7 +19,6 @@ char *copy_info(char *name, char *value)
 	_strcpy(new, "=");
 	_strcpy(new, value);
 	_strcpy(new, '\0');
-
 	return (new);
 }
 /**
@@ -39,12 +38,10 @@ void set_env(char *name, char *value, param *commandArg)
 		var_env = _strdup(commandArg->_environ[i]);
 		name_env = _strtok(var_env, "=");
 		if (_strcmp(name_env, name) == 0)
-		{
 			free(commandArg->_environ[i]);
 			commandArg->_environ[i] = copy_info(name_env, value);
 			free(var_env);
 			return;
-		}
 		free(var_env);
 	}
 	commandArg->_environ = _reallocdp(commandArg->_environ, i,
@@ -52,19 +49,16 @@ void set_env(char *name, char *value, param *commandArg)
 	commandArg->_environ[i] = copy_info(name, value);
 	commandArg->_environ[i + 1] = NULL;
 }
-
 /**
  * _setenv - compares env variables names
  * @commandArg: relevant data
- * Return 1
+ * Return: 1
  */
 int _setenv(param *commandArg)
 {
 	if (commandArg->args[1] == NULL || commandArg->args[2] == NULL)
-	{
 		get_error(commandArg, -1);
 		return (1);
-	}
 	set_env(commandArg->args[1], commandArg->args[2], commandArg);
 	return (1);
 /**
@@ -79,10 +73,8 @@ int _unsetenv(param *commandArg)
 	int i, j, k;
 
 	if (commandArg->args[1] == NULL)
-	{
 		get_error(commandArg, -1);
 		return (1);
-	}
 	k = -1;
 	for (i = 0; commandArg->_environ[i]; i++)
 	{
