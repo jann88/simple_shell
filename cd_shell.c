@@ -15,7 +15,7 @@ int _cd(param *commandArg)
 	{
 		home = _strcmp("$HOME", directory);
 		root = _strcmp("~", directory);
-		root2 = _strcmp("-", directory);
+		root2 = _strcmp("--", directory);
 	}
 	if (directory == NULL || !home || !root || !root2)
 	{

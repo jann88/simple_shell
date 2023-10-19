@@ -1,107 +1,84 @@
 #include "shell.h"
+
 /**
- * sepNode - adds a separator
- * @head: head of the linked list
- * @sep: separator
- * Return: the address
- */
-sep_list *sepNode(sep_list **head, char sep)
-{
-	sep_list *new, *reset_node;
-
-	new = malloc(sizeof(sep_list));
-	if (new == NULL)
-		return (NULL);
-
-	new->separator = sep;
-	new->next = NULL;
-	reset_node = *head;
-
-	if (reset_node == NULL)
-	{
-		*head = new;
-	}
-	else
-	{
-		while (reset_node->next != NULL)
-			reset_node = reset_node->next;
-		reset_node->next = new;
-	}
-	return (*head);
-}
-/**
- * freeSeplist - frees a sep_list
- * @head: head of the linked list
+ * _memcpy - copies info between the void pointers.
+ * @newptr: destination pointer.
+ * @ptr: source pointer
+ * @size: new pointer size
  * Return: void
  */
-void freeSeplist(sep_list **head)
+void _memcpy(void *newptr, const void *ptr, unsigned int size)
 {
-	sep_list *reset_node;
-	sep_list *current_node;
+	char *char_ptr = (char *)ptr;
+	char *char_newptr = (char *)newptr;
+	unsigned int i;
 
-	if (head != NULL)
-	{
-		current_node = *head;
-		while ((reset_node = current_node) != NULL)
-		{
-			current_node = current_node->next;
-			free(reset_node);
-		}
-		*head = NULL;
-	}
+	for (i = 0; i < size; i++)
+		char_newptr[i] = char_ptr[i];
 }
-/**
- * lineNode - adds a command line at the end
- * of line_list
- * @head: head of the linked list.
- * @line: The command line.
- * Return: The address
- */
-line_list *lineNode(line_list **head, char *line)
-{
-	line_list *new, *reset_node;
 
-	new = malloc(sizeof(line_list));
-	if (new == NULL)
+/**
+ * _realloc - realocates memory block.
+ * @ptr: points to the previously allocated memory
+ * @old_size: old size
+ * @new_size: new size
+ * Return: pointer
+ */
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+{
+	void *newptr;
+
+	if (ptr == NULL)
+		return (malloc(new_size));
+
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+
+	if (new_size == old_size)
+		return (ptr);
+
+	newptr = malloc(new_size);
+	if (newptr == NULL)
+		return (NULL);
+	/*Copy the data from the old memory block to the new memory block*/
+	if (new_size < old_size)
+		_memcpy(newptr, ptr, new_size);
+	else
+		_memcpy(newptr, ptr, old_size);
+	/*Free the old memory block*/
+	free(ptr);
+	return (newptr);
+}
+
+/**
+ * _reallocdp - reallocs memory block
+ * @ptr: double pointer
+ * @old_size: old size
+ * @new_size: new size in bytes
+ * Return: pointer
+ */
+char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
+{
+	char **newptr;
+	unsigned int i;
+
+	if (ptr == NULL)
+		return (malloc(sizeof(char *) * new_size));
+
+	if (new_size == old_size)
+		return (ptr);
+
+	newptr = malloc(sizeof(char *) * new_size);
+	if (newptr == NULL)
 		return (NULL);
 
-	new->line = line;
-	new->next = NULL;
-	reset_node = *head;
+	for (i = 0; i < old_size; i++)
+		newptr[i] = ptr[i];
 
-	if (reset_node == NULL)
-	{
-		*head = new;
-	}
-	else
-	{
-		while (reset_node->next != NULL)
-			reset_node = reset_node->next;
-		reset_node->next = new;
-	}
+	free(ptr);
 
-	return (*head);
-}
-
-/**
- * freeLinelist - frees a line_list
- * @head: head of the linked list
- * Return: void
- *
- */
-void freeLinelist(line_list **head)
-{
-	line_list *reset_node;
-	line_list *current_node;
-
-	if (head != NULL)
-	{
-		current_node = *head;
-		while ((reset_node = current_node) != NULL)
-		{
-			current_node = current_node->next;
-			free(reset_node);
-		}
-		*head = NULL;
-	}
+	return (newptr);
 }
