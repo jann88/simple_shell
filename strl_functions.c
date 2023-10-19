@@ -40,9 +40,9 @@ int _strlen(const char *s)
  */
 int cmp_chars(char str[], const char *delim)
 {
-	unisgned int i, j, k;
+	unsigned int i, j, k;
 
-	for (i = 0, k = 0; str[i]; j++)
+	for (i = 0; k = 0; str[i]; j++)
 	{
 		for (j = 0; delim[j]; j++)
 		{

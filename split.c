@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 /**
  * swap_char - swap |, and & for non-printed chars
  * @input: the input str

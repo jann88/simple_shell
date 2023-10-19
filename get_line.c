@@ -7,7 +7,7 @@
  * @j: size of the buffer
  *
  */
-void assign_line(char **linepte, size_t *n, char *buffer, size_t j)
+void assign_line(char **lineptr, size_t *n, char *buffer, size_t j)
 {
 	if (*lineptr == NULL)
 	{
@@ -63,7 +63,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	}
 	while (t != '\n')
 	{
-		i = read(STDIN_FILENO, &T, 1);
+		i = read(STDIN_FILENO, &t, 1);
 		if (i == -1 || (i == 0 && input == 0))
 		{
 			free(buffer);
@@ -80,7 +80,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		input++;
 	}
 	buffer[input] = '\0';
-	assigne_line(lineptr, n, buffer, input);
+	assign_line(lineptr, n, buffer, input);
 	retval = input;
 	if (i != 0)
 		input = 0;

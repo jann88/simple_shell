@@ -17,7 +17,7 @@ void check_env(r_var **h, char *in, param *data)
 	{
 		for (j = 1, char_index = 0; _envr[row][char_index]; char_index++)
 		{
-			if (_env[row][char_inde] == "=")
+			if (_env[row][char_index] == "=")
 			{
 				value_length = _strlen(_envr[row] + char_index + 1);
 				add_rvar_node(h, j, _envr[row] + char_index + 1, value_length);
@@ -31,7 +31,7 @@ void check_env(r_var **h, char *in, param *data)
 	}
 		for (j = 0; in[j]; j++)
 		{
-			if (in[j] == ' ' || in[j] == '\t' || in[j] == ";" || in[j] == '\n')
+			if (in[j] == ' ' || in[j] == '\t' || in[j] == ';' || in[j] == '\n')
 				break;
 		}
 		add_rvar_node(h, j, NULL, 0);
@@ -51,7 +51,7 @@ int check_vars(r_var **h, char *in, char *st, param *data)
 	lpd = _strlen(st);
 	lpd = _strlen(data->pid);
 
-	for (i = 0, in[i]; i++)
+	for (i = 0; in[i]; i++;)
 	{
 		if (in[i] == '$')
 		{

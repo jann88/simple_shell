@@ -30,8 +30,8 @@ char *strcat_cd(param *commandArg, char *msg, char *error, char *ver_str)
 	{
 		_strcat(error, commandArg->args[1]);
 	}
-	_strcat(error, '\n');
-	_strcat(error, '\0');
+	_strcat(error, "\n");
+	_strcat(error, "\0");
 	return (error);
 }
 /**
@@ -116,7 +116,7 @@ char *error_exitShell(param *commandArg)
 	char *ver_str;
 
 	ver_str = aux_itoa(commandArg->counter);
-	length = _strlen(commandArg->[0]) + _strlen(ver_str);
+	length = _strlen(commandArg->av[0]) + _strlen(ver_str);
 	length += _strlen(commandArg->args[0]) + _strlen(commandArg->args[1]) + 23;
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
@@ -124,7 +124,7 @@ char *error_exitShell(param *commandArg)
 		free(ver_str);
 		return (NULL);
 	}
-	_strcpy(error, command->av[0]);
+	_strcpy(error, commandArg->av[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");

@@ -40,7 +40,7 @@ void shell_loop(param *commandArg)
 	char *input;
 
 	loop = 1;
-	while (looop == 1)
+	while (loop == 1)
 	{
 		write(STDIN_FILENO, ":)", 2);
 		input = read_line(&i_eof);

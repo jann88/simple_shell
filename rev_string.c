@@ -1,4 +1,4 @@
-#include "shel.h"
+#include "shell.h"
 /**
  * rev_string - reverse a string
  * @s: string

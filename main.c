@@ -21,8 +21,10 @@ void free_data(param *commandArg)
  * @v: arguement vector
  * Return: void
  */
-void set_dat(param *commandArg, char **av)
+void set_data(param *commandArg, char **av)
 {
+	unsigned int i;
+
 	commandArg->av = av;
 	commandArg->input = NULL;
 	commandArg->args = NULL;

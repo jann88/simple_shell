@@ -8,7 +8,7 @@ int execute(param *commandArg)
 {
 	int (*builtin)(param *commandArg);
 
-	if (command->args[0] == NULL)
+	if (commandArg->args[0] == NULL)
 	{
 		return (1);
 	}

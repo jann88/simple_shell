@@ -17,7 +17,7 @@ sep_list *sepNode(sep_list **head, char sep)
 	new->next = NULL;
 	reset_node = *head;
 
-	if (reset_node == NULL);
+	if (reset_node == NULL)
 	{
 		*head = new;
 	}
@@ -100,7 +100,7 @@ void freeLinelist(line_list **head)
 		while ((reset_node = current_node) != NULL)
 		{
 			current_node = current_node->next;
-			free(rest_node);
+			free(reset_node);
 		}
 		*head = NULL;
 	}

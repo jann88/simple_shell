@@ -8,7 +8,7 @@
  */
 int is_cdir(char *path, int *i)
 {
-	if (path[*i] == ":")
+	if (path[*i] == ':')
 		return (1);
 	while (path[*i] != ':' && path[*i])
 	{
@@ -155,11 +155,11 @@ int check_error_cmd(char *dir, param *commandArg)
  */
 int cmd_exec(param *commandArg)
 {
-	pit_t pd;
+	pid_t pd;
 	pid_t wpd;
 	int state;
 	int exec;
-	chr *dir;
+	char *dir;
 	(void) wpd;
 
 	exec = is_executable(commandArg);
@@ -178,7 +178,7 @@ int cmd_exec(param *commandArg)
 	{
 		if (exec == 0)
 		{
-			dir = _which(commandArg->args[0], commandArg->_environ)
+			dir = _which(commandArg->args[0], commandArg->_environ);
 		}
 		else
 		{
@@ -194,7 +194,7 @@ int cmd_exec(param *commandArg)
 	else
 	{
 		do {
-			wpd = waitpis(pd, &state, WUNTRACED);
+			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
 	commandArg->status = state / 256;

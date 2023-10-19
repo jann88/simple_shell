@@ -6,14 +6,14 @@
  */
 int exitShell(param *commandArg)
 {
-	unisgned int ustatus;
+	unsigned int ustatus;
 	int exitCode, arg_len, large_num;
 
 	if (commandArg->args[1] != NULL)
 	{
 		ustatus = _atoi(commandArg->args[1]);
 		exitCode = _isdigit(commandArg->args[1]);
-		arg_len = _strlen(commandArg-args[1]);
+		arg_len = _strlen(commandArg->args[1]);
 		large_num = ustatus > (unsigned int) INT_MAX;
 		if (!exitCode || arg_len > 10 || large_num)
 		{

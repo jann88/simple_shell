@@ -12,7 +12,7 @@ int get_error(param *commandArg, int eval)
 	switch (eval)
 	{
 		case -1:
-			error = error_en(commandArg);
+			error = error_env(commandArg);
 			break;
 		case 126:
 			error = error_path_126(commandArg);
@@ -29,7 +29,7 @@ int get_error(param *commandArg, int eval)
 	}
 	if (error)
 	{
-		wrtie(STDERR_FILENO, error, _strlen(error));
+		write(STDERR_FILENO, error, _strlen(error));
 		free(error);
 	}
 	commandArg->status = eval;

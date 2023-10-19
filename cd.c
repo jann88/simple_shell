@@ -7,7 +7,7 @@
  */
 void cd_dot(param *commandArg)
 {
-	char curent_pwd[PATH_MAX];
+	char current_pwd[PATH_MAX];
 	char *dir, *cp_pwd, *cp_strtok_pwd;
 
 	getcwd(current_pwd, sizeof(current_pwd));
@@ -27,7 +27,7 @@ void cd_dot(param *commandArg)
 	}
 	cp_strtok_pwd = cp_pwd;
 	rev_string(cp_strtok_pwd);
-	cp_strtok_pwd = -strtok(cp_strtok_pwd, "/");
+	cp_strtok_pwd = _strtok(cp_strtok_pwd, "/");
 	if (cp_strtok_pwd != NULL)
 	{
 		cp_strtok_pwd = _strtok(NULL, "\0");

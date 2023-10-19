@@ -15,10 +15,10 @@ char *copy_info(char *name, char *value)
 	len_value = _strlen(value);
 	len = len_name + len_value + 2;
 	new = malloc(sizeof(char) * (len));
-	-strcpy(new, name);
-	-strcpy(new, "=");
-	-strcpy(new, value);
-	-strcpy(new, '\0');
+	_strcpy(new, name);
+	_strcpy(new, "=");
+	_strcpy(new, value);
+	_strcpy(new, '\0');
 
 	return (new);
 }
@@ -59,14 +59,13 @@ void set_env(char *name, char *value, param *commandArg)
  */
 int _setenv(param *commandArg)
 {
-	if (commandArg->args[1] == NULL || commandArg[2] == NULL)
+	if (commandArg->args[1] == NULL || commandArg->args[2] == NULL)
 	{
 		get_error(commandArg, -1);
 		return (1);
 	}
 	set_env(commandArg->args[1], commandArg->args[2], commandArg);
 	return (1);
-}
 }
 /**
  * _unsetenv - deletes an environment variable

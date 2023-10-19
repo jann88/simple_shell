@@ -14,17 +14,17 @@ char *error_env(param *commandArg)
 
 	ver_str = aux_itoa(commandArg->counter);
 	msg = ": Unable to add/remove from environment\n";
-	length = _strlen(commandArg->v[0]) + _strlen(ver_str);
+	length = _strlen(commandArg->av[0]) + _strlen(ver_str);
 	length = _strlen(commandArg->args[0]) + _strlen(msg) + 4;
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
 	{
-		free(erro);
+		free(error);
 		free(ver_str);
 		return (NULL);
 	}
 
-	_strcpy(error, commandArg->[0]);
+	_strcpy(error, commandArg->av[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, commandArg->args[0]);
