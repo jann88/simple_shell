@@ -42,7 +42,7 @@ int cmp_chars(char str[], const char *delim)
 {
 	unsigned int i, j, k;
 
-	for (i = 0; k = 0; str[i]; j++)
+	for ((i = 0, k = 0); str[i]; j++)
 	{
 		for (j = 0; delim[j]; j++)
 		{
