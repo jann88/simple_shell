@@ -117,7 +117,7 @@ void print_syntax_error(param *commandArg, char *input, int i, int bool)
 
 	msg2 = ": Syntax error: \"";
 	msg3 = "\" unexpected\n";
-	counter = aux_itoa(commandArg->counter);
+	counter = *aux_itoa(commandArg->counter);
 	length = _strlen(commandArg->av[0]) + _strlen(counter);
 	length += _strlen(msg) + _strlen(msg2) + _strlen(msg3) + 2;
 
