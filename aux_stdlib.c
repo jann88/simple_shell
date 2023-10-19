@@ -6,7 +6,7 @@
  */
 int get_len(int n)
 {
-	unisgned int absolute_num;
+	unsigned int absolute_num;
 	int length = 1;
 
 	if (n < 0)
