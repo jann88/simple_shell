@@ -1,18 +1,18 @@
 #include "shell.h"
+
 void freearray2D(char **array)
 {
-
 	int i;
 
 	if (!array)
 		return;
 	for (i = 0; array[i]; i++)
-{
+	{
 		free(array[i]);
 		array[i] = NULL;
-}
-free(array);
-array + NULL;
+	}
+	free(array);
+	array = NULL;
 }
 void print_error(char *name, char *cmd, int idx)
 {
@@ -22,10 +22,10 @@ void print_error(char *name, char *cmd, int idx)
 	index =  _itoa(idx);
 
 	write(STDERR_FILENO, name, _strlen(name));
-	write(STRDER_FILENO, ": ", 2);
-	write(STRDERR_FILENO, index, _strlen(index));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, index, _strlen(index));
 	write(STDERR_FILENO, ":", 2);
-	write(STDRR_FILENO, cmd, _strlen(cmd));
+	write(STDERR_FILENO, cmd, _strlen(cmd));
 	write(STDERR_FILENO, mssg, _strlen(mssg));
 	free(index);
 }
@@ -33,14 +33,15 @@ char *_itoa(int n);
 {
 	char buffer[20];
 	int i = 0;
-
-	if (n == 0)
+	{
+		if (n == 0)
 		buffer[i++] = '0';
+	}
 	else
 	{
 		while (n > 0)
 		{
-			buffer[i++] = (n % 10) + '10';
+			buffer[i++] = (n % 10), '10';
 			n /= 10;
 		}
 	}

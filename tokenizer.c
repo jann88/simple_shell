@@ -37,7 +37,7 @@ char **tokenizer(char *line)
 		free(line), line = NULL; /*free input string */
 		return (NULL);
 	}
-	token = strtok(line, DELIM); 
+	token = strtok(line, DELIM);
 	while (token)
 	{
 		command[i] = _strdup(token); /* duplicate each token */
