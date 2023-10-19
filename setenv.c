@@ -61,6 +61,7 @@ int _setenv(param *commandArg)
 		return (1);
 	set_env(commandArg->args[1], commandArg->args[2], commandArg);
 	return (1);
+}
 /**
  * _unsetenv - deletes an environment variable
  * @commandArg: relevant data
