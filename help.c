@@ -7,7 +7,7 @@ void displayHelp_env(void)
 {
 	char *help = "env: env [option] [name=value] [command [args]]\n\t";
 
-	write(STDOUT_FILENO, help _strlen(help));
+	write(STDOUT_FILENO, help, _strlen(help));
 	help = "These commands are defined internally.Type 'help' to see the list";
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "Type 'help name' to find out more about the function 'name'.\n\n ";
