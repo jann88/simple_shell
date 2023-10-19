@@ -190,7 +190,7 @@ int exitShell(param *commandArg);
 
 /* aux_stdlib.c */
 int get_len(int n);
-char aux_itoa(int n);
+char *aux_itoa(int n);
 int _atoi(char *s);
 
 /* get_sigint.c */
