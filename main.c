@@ -12,12 +12,12 @@ int main(int ac, char **av)
 	(void) ac;
 	while (1) /*infinate loop */
 	{
-		line = read_line();
+		line = _read_line();
 
 	if (line == NULL)  /* Reach end of line (EOF) ctr + D */
 	{
 		if (isatty(STDIN_FILENO)) /* is the program on interactive/non-interactive */
-			write(STDOUT_FILENO, "\n" 1); /* print out new line */
+			write(STDOUT_FILENO, "\n", 1); /* print out new line */
 		return (status);
 	}
 	idx++;

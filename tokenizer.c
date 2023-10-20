@@ -5,49 +5,43 @@
  * tmp -temporary string
  * tokenizer: split input string into arrays of tokens
  */
-char **tokenizer(char *line)
+char **tokenizer(const char *line, int tokenCount)
 {
-	char *token = NULL, char **command = NULL, tmp = NULL;
-	int cpt = 0, i = 0;
-
-	if (!line)
-
+	if (!line || !tokenCount)
 		return (NULL);
 
-	tmp = _strdup(line); /* duplicate the string */
+	char **command = NULL;
+	char *tmp = strdup(line);
 
-	token = strtok(tmp, DELIM);
-
-	if  (token == NULL)
+	if (!tmp)
 	{
-		free(line), line = NULL; /* free line */
-		free(tmp), tmp = NULL; /* free string temporary */
 		return (NULL);
 	}
+	char *token;
+	int cpt = 0;
+
+	token = strtok(tmp, DELIM);
 	while (token)
 	{
 		cpt++;
 		token = strtok(NULL, DELIM);
 	}
-	free(tmp), tmp = NULL; /* free the temporary string */
+	free(tmp);
+	*tokenCount = cpt;
 
-	command = (char **)malloc(siseof(char *) * (cpt + 1));
+	command = (char **)malloc(sizeof(char *) * (cpt + 1));
+
 	if (!command)
-	{
-		free(line), line = NULL; /*free input string */
 		return (NULL);
-	}
 	token = strtok(line, DELIM);
+	int i = 0;
+
 	while (token)
 	{
-		command[i] = _strdup(token); /* duplicate each token */
-		token = strtok(NULL, DELIM);
+		command[i] = strtok(NULL, DELIM);
 		i++;
 	}
-	free(line), line = NULL;
 	command[i] = NULL;
+	free(line);
 	return (command);
 }
-
-
-

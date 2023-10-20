@@ -12,6 +12,7 @@ int is_positive_number(char *str)
 	}
 	return (1);
 }
+
 int _atoi(char *str)
 {
 	int i, num == 0;

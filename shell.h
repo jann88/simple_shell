@@ -14,8 +14,8 @@
 #include <sys/time.h>
 #include <dirent.h>
 
-#define DELIM " \t\n"
-
+#define DELIM "\t\n"
+	
 
 
 
